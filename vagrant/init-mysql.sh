@@ -18,7 +18,6 @@ fi
 
 echo "Load database..."
 mysql -uroot $ROOT_PASSWORD < /vagrant/vagrant/mysql/create-databases.sql
-mysql -uroot $ROOT_PASSWORD --max_allowed_packet=1000M -Dg3common_v2 < /vagrant/vagrant/mysql/example-db.sql
 echo "database loaded."
 
 echo "Initialize database"
