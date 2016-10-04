@@ -2,6 +2,8 @@
 
 $SET_X
 
+MYSQL_PACKAGE="mysql-community-server"
+
 export DOWNLOAD_DIR=/home/vagrant/downloads
 mkdir -p $DOWNLOAD_DIR
 chmod 774 $DOWNLOAD_DIR
@@ -25,7 +27,8 @@ rpm -Uvh wkhtmltox-0.12.2.1_linux-centos6-amd64.rpm
 # install LAMP for test
 # --------------------------------------------
 yum -y install httpd
-yum -y install mysql-server
+yum -y localinstall /vagrant/vagrant/mysql/mysql57-community-release-el6-7.noarch.rpm
+yum -y install $MYSQL_PACKAGE
 
 # copy customized my.cnf file
 cp -f /vagrant/vagrant/mysql/my.cnf /etc/my.cnf
